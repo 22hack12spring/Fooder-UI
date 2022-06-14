@@ -15,6 +15,8 @@
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.5.1",
+    "@quasar/extras": "^1.14.0",
+    "@quasar/vite-plugin": "^1.0.10",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "@vitejs/plugin-vue": "^2.3.3",
@@ -26,6 +28,8 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.1",
     "prettier": "^2.4.1",
+    "quasar": "^2.7.1",
+    "sass": "^1.32.12",
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
     "vue-router": "^4.0.16",
