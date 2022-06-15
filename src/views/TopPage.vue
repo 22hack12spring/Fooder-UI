@@ -1,11 +1,24 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from "../components/HelloWorld.vue";
 </script>
 
 <template>
+  <div class="col-4">
+    <q-img
+      src="https://placeimg.com/500/300/nature"
+      style="max-width: 500px; height: 500px"
+    />
+  </div>
+  <div class="full-width column justify-center items-center">
+    <div class="q-gutter-md" style="max-width: 300px">
+      <q-input rounded outlined v-model="text" label="Station" />
+    </div>
+  </div>
 
+  <div class="q-pa-md q-gutter-sm">
+    <q-btn round color="deep-orange" icon="my_location" />
+  </div>
 </template>
 
 <style>
