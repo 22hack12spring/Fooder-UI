@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { GourmetQuestion } from "../apis/generated";
+import { GourmetAnswer, GourmetQuestion } from "../apis/generated";
 import QuestionInfoCard from "../components/QuestionInfoCard.vue";
-// import { useStore } from "../store";
+import { useStore } from "../store";
 import { ref } from "vue";
 import router from "../router";
-// const store = useStore();
+import { gourmetAnswerRequest } from "../apis";
+const store = useStore();
 // const questions: Array<GourmetQuestion> | null = store.state.questions;
 
 const question: GourmetQuestion = {
@@ -16,20 +17,38 @@ const question: GourmetQuestion = {
 };
 const questionLength = 7;
 
-// 便宜上1-indexedなので, 呼び出すときに-1する
+// 便宜上1-indexedなので, 配列のindexとして利用するときに-1する
 const currentQuestionNum = ref<number>(1);
 
+const gourmetAnswers = ref<Array<GourmetAnswer>>([]);
+
 function onNoClicked() {
+  gourmetAnswers.value.push({
+    id: currentQuestionNum.value,
+    answer: "no",
+  });
   currentQuestionNum.value *= 2;
   if (currentQuestionNum.value > questionLength) {
-    router.push("/result");
+    allQuestionsAnswered();
   }
 }
 function onYesClicked() {
+  gourmetAnswers.value.push({
+    id: currentQuestionNum.value,
+    answer: "yes",
+  });
   currentQuestionNum.value = currentQuestionNum.value * 2 + 1;
   if (currentQuestionNum.value > questionLength) {
-    router.push("/result");
+    allQuestionsAnswered();
   }
+}
+
+function allQuestionsAnswered() {
+  gourmetAnswerRequest({
+    id: store.state.gourmetSearchId!,
+    answer: gourmetAnswers.value,
+  });
+  router.push("/result");
 }
 </script>
 
