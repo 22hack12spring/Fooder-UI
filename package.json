@@ -33,7 +33,8 @@
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
     "vue-router": "^4.0.16",
-    "vue-tsc": "^0.34.7"
+    "vue-tsc": "^0.34.7",
+    "vuex": "^4.0.2"
   },
   "lint-staged": {
     "*.{ts,tsx,vue}": [
