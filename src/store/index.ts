@@ -17,6 +17,7 @@ export const store = createStore<State>({
     },
   },
 });
+
 export const useStore = () => {
   return baseUseStore(key);
 };
