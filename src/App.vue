@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpr fFf" class="shadow-2 rounded-borders">
+  <q-layout view="hHh lpr fFf" class="shadow-2 rounded-borders note-sans">
     <AppHeader />
     <q-footer elevated>
       <q-toolbar-title>Powered by ホットペッパー Webサービス</q-toolbar-title>
