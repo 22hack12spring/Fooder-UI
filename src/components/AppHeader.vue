@@ -4,7 +4,7 @@ import Icon from "../assets/fooder_icon.png";
 
 <template>
   <q-header>
-    <q-toolbar>
+    <q-toolbar class="max-width">
       <q-avatar square>
         <img :src="Icon" />
       </q-avatar>
@@ -18,5 +18,10 @@ import Icon from "../assets/fooder_icon.png";
 <style scoped>
 .title {
   font-size: 30px;
+}
+
+.max-width {
+  max-width: calc(600px - 32px);
+  margin: auto;
 }
 </style>

@@ -11,7 +11,7 @@
     </q-footer>
 
     <q-page-container>
-      <q-page class="q-pa-md">
+      <q-page class="q-pa-md page">
         <router-view />
       </q-page>
     </q-page-container>
@@ -29,6 +29,10 @@ import AppHeaderVue from "./components/AppHeader.vue";
 .link {
   text-decoration: none;
 }
+.page {
+  max-width: 600px;
+  margin: auto;
+}
 </style>
 
 <style>
@@ -36,5 +40,11 @@ import AppHeaderVue from "./components/AppHeader.vue";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+
+html,
+body,
+#app {
+  font-size: 16px;
 }
 </style>

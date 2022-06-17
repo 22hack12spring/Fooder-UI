@@ -1,12 +1,23 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { gourmetStartRequest } from "../apis";
+import router from "../router";
 const text = ref("");
+
 async function Startclicked() {
+  if (text.value.length === 0) {
+    return;
+  }
   await gourmetStartRequest({
     station: text.value,
   });
+  router.push("/question");
 }
+
+const stationRules = [
+  (v: string) => (v && v.length > 0) || "駅名を入力してください",
+];
+
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 </script>
@@ -18,18 +29,22 @@ async function Startclicked() {
       <p class="text-secondary subtitle">どこへ行く?</p>
     </div>
   </div>
-  <div class="q-pa-sm"></div>
-  <div class="full-width column justify-center items-center">
-    <div class="q-gutter-md" style="width: 264px">
-      <q-input outlined v-model="text" label="駅名" />
+  <div class="full-width column justify-center items-center q-my-lg">
+    <div class="station">
+      <q-input :rules="stationRules" outlined v-model="text" label="駅名" />
     </div>
   </div>
-  <div class="q-pa-md"></div>
-  <div class="col-4">
-    <q-img src="../assets/logo.png" style="width: 200px; height: 200px" />
+  <div class="col-4 q-my-lg">
+    <q-img
+      rounded
+      src="../assets/fooder_logo.png"
+      width="240px"
+      height="240px"
+      class="logo"
+    />
   </div>
-  <div class="q-pa-sm"></div>
-  <div class="q-pa-md q-gutter-sm do-hyeon">
+
+  <div class="q-gutter-sm do-hyeon q-mt-lg">
     <q-btn
       size="1.875rem"
       padding="0px"
@@ -62,5 +77,13 @@ async function Startclicked() {
 
 .subtitle {
   margin: 0px;
+}
+.station {
+  min-width: 240px;
+  width: calc(100% - 32px);
+}
+
+.logo {
+  border-radius: 8px;
 }
 </style>
