@@ -24,7 +24,7 @@ const stationRules = [
 </script>
 
 <template>
-  <page-title title="Location" subtitle="どこへ行く" />
+  <page-title title="Location" subtitle="どこへ行く？" />
   <div class="full-width column justify-center items-center q-my-lg">
     <div class="station">
       <q-input :rules="stationRules" outlined v-model="text" label="駅名" />
