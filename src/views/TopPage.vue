@@ -12,17 +12,16 @@ async function Startclicked() {
 </script>
 
 <template>
-  <div class="q-pa-md"></div>
-  <html>
-    <div style="line-height: 1pt" class="q-pl-md">
-      <p style="text-align: left" class="do-hyeon subtitle">Location</p>
-      <p style="text-align: left" class="text-secondary">どこへ行く?</p>
+  <div class="title-left">
+    <div class="title-container">
+      <p class="do-hyeon title">Location</p>
+      <p class="text-secondary subtitle">どこへ行く?</p>
     </div>
-  </html>
+  </div>
   <div class="q-pa-sm"></div>
   <div class="full-width column justify-center items-center">
-    <div class="q-gutter-md" style="width: 250px">
-      <q-input rounded outlined v-model="text" label="大岡山駅" />
+    <div class="q-gutter-md" style="width: 264px">
+      <q-input outlined v-model="text" label="駅名" class="station" />
     </div>
   </div>
   <div class="q-pa-md"></div>
@@ -30,22 +29,42 @@ async function Startclicked() {
     <q-img src="../assets/logo.png" style="width: 200px; height: 200px" />
   </div>
   <div class="q-pa-sm"></div>
-  <div class="q-pa-md q-gutter-sm do-hyeon search">
+  <div class="q-pa-md q-gutter-sm do-hyeon">
     <q-btn
-      unelevated
+      size="1.875rem"
+      padding="0px"
+      no-caps
       style="width: 190px"
-      color="orange"
+      color="primary"
       label="Search"
+      class="search"
       @click="Startclicked()"
     />
   </div>
 </template>
 
 <style>
-.subtitle {
-  font-size: 25px;
+.title-left {
+  display: flex;
 }
-.search {
-  letter-spacing: 10em;
+.title-container {
+  margin-left: 20px;
+  margin-top: 16px;
+  display: flex;
+  line-height: 20px;
+  justify-content: center;
+  flex-direction: column;
+}
+.title {
+  font-size: 2rem;
+  margin: 0px;
+}
+
+.subtitle {
+  margin: 0px;
+}
+
+.station {
+  display: flex;
 }
 </style>
