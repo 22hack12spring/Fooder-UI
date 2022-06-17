@@ -2,7 +2,7 @@
   <q-layout view="hHh lpr fff" class="note-sans">
     <AppHeaderVue />
     <q-footer class="transparent">
-      <q-toolbar-title class="text-secondary footer">
+      <q-toolbar-title class="text-secondary footer q-py-xs">
         Powered by
         <a href="http://webservice.recruit.co.jp/" class="text-secondary link">
           ホットペッパー Webサービス
