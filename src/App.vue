@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpr fff" class="shadow-2 rounded-borders note-sans">
+  <q-layout view="hHh lpr fff" class="note-sans">
     <AppHeaderVue />
     <q-footer class="transparent">
       <q-toolbar-title class="text-secondary footer">
@@ -28,5 +28,13 @@ import AppHeaderVue from "./components/AppHeader.vue";
 }
 .link {
   text-decoration: none;
+}
+</style>
+
+<style>
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 </style>
