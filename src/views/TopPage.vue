@@ -12,24 +12,31 @@ async function Startclicked() {
 </script>
 
 <template>
-  <div class="col-4">
-    <q-img
-      src="https://placeimg.com/500/300/nature"
-      style="max-width: 500px; height: 500px"
-    />
-  </div>
-
+  <html>
+    <DIV style="line-height: 1pt">
+      <p style="text-align: left"><font size="6">Location</font></p>
+      <p style="text-align: left">
+        <font size="2">&nbsp;&ensp;&ensp;&ensp;どこへ行く?</font>
+      </p>
+    </DIV>
+  </html>
+  <div class="q-pa-sm"></div>
   <div class="full-width column justify-center items-center">
-    <div class="q-gutter-md" style="max-width: 300px">
-      <q-input rounded outlined v-model="text" label="Station" />
+    <div class="q-gutter-md" style="width: 250px">
+      <q-input rounded outlined v-model="text" label="大岡山駅" />
     </div>
   </div>
-
+  <div class="q-pa-md"></div>
+  <div class="col-4">
+    <q-img src="../assets/logo.png" style="width: 200px; height: 200px" />
+  </div>
+  <div class="q-pa-sm"></div>
   <div class="q-pa-md q-gutter-sm">
     <q-btn
-      round
-      color="deep-orange"
-      icon="my_location"
+      unelevated
+      style="width: 190px"
+      color="orange"
+      label="Search"
       @click="Startclicked()"
     />
   </div>
