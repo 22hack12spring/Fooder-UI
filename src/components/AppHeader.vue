@@ -14,7 +14,9 @@ import { RouterLink } from "vue-router";
       <q-toolbar-title class="do-hyeon">
         <router-link to="/" class="title text-white">Fooder</router-link>
       </q-toolbar-title>
-      <q-btn flat round dense icon="question_mark" />
+      <router-link to="concept" class="text-white concept">
+        <q-btn flat round dense icon="question_mark" />
+      </router-link>
     </q-toolbar>
   </q-header>
 </template>
@@ -28,5 +30,9 @@ import { RouterLink } from "vue-router";
 .max-width {
   max-width: calc(600px - 32px);
   margin: auto;
+}
+
+.concept {
+  text-decoration: none;
 }
 </style>

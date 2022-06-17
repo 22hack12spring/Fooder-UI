@@ -22,7 +22,7 @@ const props = defineProps({
   margin-left: 20px;
   margin-top: 16px;
   display: flex;
-  line-height: 20px;
+  line-height: 1.4rem;
   justify-content: center;
   flex-direction: column;
 }
