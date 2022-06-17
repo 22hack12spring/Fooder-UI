@@ -12,10 +12,13 @@ async function Startclicked() {
 </script>
 
 <template>
+  <div class="q-pa-xs"></div>
   <html>
     <DIV style="line-height: 1pt">
-      <p style="text-align: left"><font size="6">Location</font></p>
-      <p style="text-align: left">
+      <p style="text-align: left" class="Do-Hyeon">
+        <font size="6">Location</font>
+      </p>
+      <p style="text-align: left" class="text-secondary">
         <font size="2">&nbsp;&ensp;&ensp;&ensp;どこへ行く?</font>
       </p>
     </DIV>
