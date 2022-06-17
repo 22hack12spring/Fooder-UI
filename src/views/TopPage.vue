@@ -21,7 +21,7 @@ async function Startclicked() {
   <div class="q-pa-sm"></div>
   <div class="full-width column justify-center items-center">
     <div class="q-gutter-md" style="width: 264px">
-      <q-input outlined v-model="text" label="駅名" class="station" />
+      <q-input outlined v-model="text" label="駅名" />
     </div>
   </div>
   <div class="q-pa-md"></div>
@@ -62,9 +62,5 @@ async function Startclicked() {
 
 .subtitle {
   margin: 0px;
-}
-
-.station {
-  display: flex;
 }
 </style>
