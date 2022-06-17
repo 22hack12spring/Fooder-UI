@@ -12,16 +12,12 @@ async function Startclicked() {
 </script>
 
 <template>
-  <div class="q-pa-xs"></div>
+  <div class="q-pa-md"></div>
   <html>
-    <DIV style="line-height: 1pt">
-      <p style="text-align: left" class="Do-Hyeon">
-        <font size="6">Location</font>
-      </p>
-      <p style="text-align: left" class="text-secondary">
-        <font size="2">&nbsp;&ensp;&ensp;&ensp;どこへ行く?</font>
-      </p>
-    </DIV>
+    <div style="line-height: 1pt" class="q-pl-md">
+      <p style="text-align: left" class="do-hyeon subtitle">Location</p>
+      <p style="text-align: left" class="text-secondary">どこへ行く?</p>
+    </div>
   </html>
   <div class="q-pa-sm"></div>
   <div class="full-width column justify-center items-center">
@@ -34,7 +30,7 @@ async function Startclicked() {
     <q-img src="../assets/logo.png" style="width: 200px; height: 200px" />
   </div>
   <div class="q-pa-sm"></div>
-  <div class="q-pa-md q-gutter-sm">
+  <div class="q-pa-md q-gutter-sm do-hyeon search">
     <q-btn
       unelevated
       style="width: 190px"
@@ -44,3 +40,12 @@ async function Startclicked() {
     />
   </div>
 </template>
+
+<style>
+.subtitle {
+  font-size: 25px;
+}
+.search {
+  letter-spacing: 10em;
+}
+</style>
