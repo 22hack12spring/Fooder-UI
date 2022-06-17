@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { gourmetStartRequest } from "../apis";
+import PageTitle from "../components/PageTitle.vue";
 import router from "../router";
 const text = ref("");
 
@@ -23,12 +24,7 @@ const stationRules = [
 </script>
 
 <template>
-  <div class="title-left">
-    <div class="title-container">
-      <p class="do-hyeon title">Location</p>
-      <p class="text-secondary subtitle">どこへ行く?</p>
-    </div>
-  </div>
+  <page-title title="Location" subtitle="どこへ行く" />
   <div class="full-width column justify-center items-center q-my-lg">
     <div class="station">
       <q-input :rules="stationRules" outlined v-model="text" label="駅名" />
@@ -58,26 +54,7 @@ const stationRules = [
   </div>
 </template>
 
-<style>
-.title-left {
-  display: flex;
-}
-.title-container {
-  margin-left: 20px;
-  margin-top: 16px;
-  display: flex;
-  line-height: 20px;
-  justify-content: center;
-  flex-direction: column;
-}
-.title {
-  font-size: 2rem;
-  margin: 0px;
-}
-
-.subtitle {
-  margin: 0px;
-}
+<style scoped>
 .station {
   min-width: 240px;
   width: calc(100% - 32px);
