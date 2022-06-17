@@ -1,17 +1,29 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { gourmetStartRequest } from "../apis";
+import { useQuasar, QSpinnerPie } from "quasar";
 import PageTitle from "../components/PageTitle.vue";
 import router from "../router";
 const text = ref("");
+const $q = useQuasar();
+
+const showloading = () => {
+  $q.loading.show({
+    spinner: QSpinnerPie,
+    spinnerColor: "primary",
+    spinnerSize: 140,
+  });
+};
 
 async function Startclicked() {
   if (text.value.length === 0) {
     return;
   }
+  showloading();
   await gourmetStartRequest({
     station: text.value,
   });
+  $q.loading.hide();
   router.push("/question");
 }
 
