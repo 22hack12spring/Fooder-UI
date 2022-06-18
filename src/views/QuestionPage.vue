@@ -95,30 +95,34 @@ function flipCardLeave(el: gsap.TweenTarget, completed: () => void) {
     class="full-width column justify-center items-center"
   >
     <div class="card-container">
-      <transition-group leave @leave="flipCardLeave">
-        <question-info-card
-          :question="questions[currentQuestionNum - 1]"
-          class="q-mb-lg card-space"
-        />
+      <question-info-card
+        :question="questions[currentQuestionNum - 1]"
+        class="q-mb-lg card-space"
+      />
+      <transition leave @leave="flipCardLeave">
         <div class="card">
           <question-info-card
             :question="questions[currentQuestionNum - 1]"
             class="q-mb-lg"
           />
         </div>
+      </transition>
+      <transition leave @leave="flipCardLeave">
         <div class="card" v-if="currentQuestionNum <= 3">
           <question-info-card
             :question="questions[currentQuestionNum - 1]"
             class="q-mb-lg"
           />
         </div>
+      </transition>
+      <transition leave @leave="flipCardLeave">
         <div class="card" v-if="currentQuestionNum === 1">
           <question-info-card
             :question="questions[currentQuestionNum - 1]"
             class="q-mb-lg"
           />
         </div>
-      </transition-group>
+      </transition>
     </div>
     <div class="full-width row">
       <div class="col">
