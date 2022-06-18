@@ -52,7 +52,7 @@ const result: GourmetShop | null = store.state.resultShop;
         ></iframe>
       </div>
       <div class="row q-pr-md q-mb-sm justify-end items-center link">
-        <a :href="result.url" />
+        <a :href="result.url" target="_blank" />
         <q-icon
           name="open_in_new"
           class="q-mr-sm"
