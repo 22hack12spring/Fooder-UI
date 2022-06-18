@@ -164,7 +164,7 @@ function onSwipeCancel() {
         </div>
       </transition>
     </div>
-    <div class="full-width row">
+    <div class="full-width row button-container">
       <div class="col">
         <q-btn
           round
@@ -192,6 +192,10 @@ function onSwipeCancel() {
 </template>
 
 <style scoped lang="scss">
+.button-container {
+  max-width: 340px;
+  margin-top: 16px;
+}
 .close-button {
   background-color: $accent;
   color: white;
@@ -207,7 +211,6 @@ function onSwipeCancel() {
 .card {
   width: 100%;
   padding: 16px;
-  padding-bottom: 0px;
   position: absolute;
   display: flex;
   justify-content: center;
