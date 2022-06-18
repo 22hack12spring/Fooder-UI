@@ -22,8 +22,12 @@ const props = defineProps<Props>();
 
 <style scoped>
 .question-card {
-  max-width: 80%;
+  max-width: 340px;
   max-height: 100%;
   border-radius: 20px;
+}
+image {
+  width: 340px;
+  height: 340px;
 }
 </style>
