@@ -7,11 +7,14 @@ import router from "../router";
 const text = ref("");
 const $q = useQuasar();
 
+const stations = ["大岡山", "渋谷", "新宿", "横浜"];
+const stationHint = stations[Math.floor(Math.random() * stations.length)];
+
 const showloading = () => {
   $q.loading.show({
     spinner: QSpinnerPie,
     spinnerColor: "primary",
-    spinnerSize: 140,
+    spinnerSize: 80,
   });
 };
 
@@ -39,7 +42,14 @@ const stationRules = [
   <page-title title="Location" subtitle="どこへ行く？" />
   <div class="full-width column justify-center items-center q-my-lg">
     <div class="station">
-      <q-input :rules="stationRules" outlined v-model="text" label="駅名" />
+      <q-input
+        :rules="stationRules"
+        outlined
+        v-model="text"
+        :placeholder="stationHint"
+        hint="地名・駅名"
+        :input-style="{ fontSize: '1rem' }"
+      />
     </div>
   </div>
   <div class="col-4 q-my-lg">
@@ -48,7 +58,6 @@ const stationRules = [
       src="../assets/fooder_logo.png"
       width="240px"
       height="240px"
-      class="logo"
     />
   </div>
 
