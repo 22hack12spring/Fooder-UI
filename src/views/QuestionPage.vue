@@ -5,6 +5,8 @@ import { useStore } from "../store";
 import { ref } from "vue";
 import router from "../router";
 import { gourmetAnswerRequest } from "../apis";
+import PageTitle from "../components/PageTitle.vue";
+
 const store = useStore();
 const questions: Array<GourmetQuestion> | null = store.state.questions;
 
@@ -46,6 +48,7 @@ function allQuestionsAnswered() {
 </script>
 
 <template>
+  <page-title title="Discover" subtitle="今日の気分は?" class="q-mb-md" />
   <div
     v-if="questions !== null"
     class="full-width column justify-center items-center"

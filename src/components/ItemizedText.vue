@@ -8,7 +8,7 @@ const props = defineProps<Props>();
 
 <template>
   <div class="row items-center">
-    <div class="bullet q-mr-sm" />
+    <div class="bullet q-mr-sm q-my-sm" />
     <div class="text note-sans">{{ text }}</div>
   </div>
 </template>
