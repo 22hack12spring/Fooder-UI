@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import { Quasar } from "quasar";
+import { Quasar, Loading, QSpinnerPie } from "quasar";
 import quasarLang from "quasar/lang/ja";
 import App from "./App.vue";
 import router from "./router";
@@ -13,8 +13,11 @@ import "./font.css";
 const app = createApp(App);
 
 app.use(Quasar, {
-  plugins: {},
+  plugins: { Loading },
   lang: quasarLang,
+  config: {
+    loading: { QSpinnerPie },
+  },
 });
 app.use(router);
 app.use(store, key);
