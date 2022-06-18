@@ -1,44 +1,58 @@
 <script setup lang="ts">
+import { GourmetShop } from "../apis/generated";
 import ItemizedText from "../components/ItemizedText.vue";
+import { useStore } from "../store";
+
+const store = useStore();
+const result: GourmetShop | null = store.state.result;
 </script>
 
 <template>
-  <div class="full-width column justify-center items-center">
+  <div
+    v-if="result !== null"
+    class="full-width column justify-center items-center"
+  >
     <q-card class="resultCard">
-      <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
+      <q-img :src="result.photo" />
       <div class="shop-name note-sans q-py-lg q-pl-sm">
-        イタリアンバル NORANEKO
+        {{ result.name }}
       </div>
       <div class="q-mb-md">
-        <itemized-text class="q-ml-md" text="イタリアン・フレンチ" />
-        <itemized-text class="q-ml-md" text="ダイニングバー・バル" />
-        <itemized-text class="q-ml-md" text="3001〜4000円" />
+        <itemized-text class="q-ml-md" :text="result.genre" />
+        <itemized-text class="q-ml-md" :text="result.subgenre" />
+        <itemized-text class="q-ml-md" :text="result.price" />
       </div>
       <div class="row justify-start">
-        <div class="col-3 q-pl-md itemize-title do-hyeon">Lunch</div>
-        <div class="col-8 itemize-text q-my-xs">なし</div>
+        <div class="col-3 q-pl-md q-my-xs itemize-title do-hyeon">Lunch</div>
+        <div class="col-8 itemize-text q-my-xs">{{ result.lunch }}</div>
       </div>
       <div class="row">
-        <div class="col-3 q-pl-md itemize-title do-hyeon">Close</div>
-        <div class="col-8 itemize-text q-my-xs">第二、第四月曜日※変動有</div>
+        <div class="col-3 q-pl-md q-my-xs itemize-title do-hyeon">Close</div>
+        <div class="col-8 itemize-text q-my-xs">{{ result.close }}</div>
       </div>
       <div class="row">
-        <div class="col-3 q-pl-md itemize-title do-hyeon">Access</div>
+        <div class="col-3 q-pl-md q-my-xs itemize-title do-hyeon">Access</div>
         <div class="col-8 itemize-text note-sans q-my-xs">
-          東京都杉並区高円寺北２－２２－６クックランド高円寺ビル２階
+          {{ result.address }}
         </div>
       </div>
       <div class="q-py-md">
         <iframe
-          width="270"
-          src="http://maps.google.co.jp/maps?q=35.605123, 139.68353&z=17&output=embed&t=m"
+          width="370"
+          :src="
+            'http://maps.google.co.jp/maps?q=' +
+            result.lat +
+            ', ' +
+            result.lng +
+            '&z=15&output=embed&t=m'
+          "
           frameborder="0"
           marginwidth="0"
           marginheight="0"
         ></iframe>
       </div>
       <div class="row q-pr-md q-mb-sm justify-end items-center link">
-        <a href="https://google.com" />
+        <a :href="result.url" />
         <q-icon
           name="open_in_new"
           class="q-mr-sm"
@@ -48,6 +62,7 @@ import ItemizedText from "../components/ItemizedText.vue";
       </div>
     </q-card>
   </div>
+  <div v-else>結果を取得できませんでした</div>
 </template>
 
 <style scoped>
