@@ -22,9 +22,11 @@ function onNoClicked() {
     id: currentQuestionNum.value,
     answer: "no",
   });
-  currentQuestionNum.value *= 2;
-  if (currentQuestionNum.value > questionLength) {
+  const tmp = currentQuestionNum.value * 2;
+  if (tmp > questionLength) {
     allQuestionsAnswered();
+  } else {
+    currentQuestionNum.value = tmp;
   }
 }
 function onYesClicked() {
@@ -32,9 +34,11 @@ function onYesClicked() {
     id: currentQuestionNum.value,
     answer: "yes",
   });
-  currentQuestionNum.value = currentQuestionNum.value * 2 + 1;
-  if (currentQuestionNum.value > questionLength) {
+  const tmp = currentQuestionNum.value * 2 + 1;
+  if (tmp > questionLength) {
     allQuestionsAnswered();
+  } else {
+    currentQuestionNum.value = tmp;
   }
 }
 
