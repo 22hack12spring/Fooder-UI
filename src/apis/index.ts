@@ -1,7 +1,9 @@
 import { Configuration, GourmetStartRequest, GourmetApi } from "./generated";
 import { store } from "../store";
 
-const baseUrl = "http://localhost:8080/api/v1";
+const baseUrl = import.meta.env.DEV
+  ? "http://localhost:8080/api/v1"
+  : "https://22hack12spring.trap.show/fooder-backend/api/v1";
 
 const config = new Configuration({ basePath: baseUrl });
 
