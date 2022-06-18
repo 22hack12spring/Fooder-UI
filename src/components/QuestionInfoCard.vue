@@ -11,7 +11,7 @@ const props = defineProps<Props>();
 
 <template>
   <q-card class="question-card full-width">
-    <q-img :src="question.image" />
+    <q-img class="question-image" :src="question.image" />
     <q-card-section>
       <itemized-text :text="question.genre" />
       <itemized-text :text="question.subgenre" />
@@ -26,7 +26,7 @@ const props = defineProps<Props>();
   max-height: 100%;
   border-radius: 20px;
 }
-image {
+.question-image {
   width: 340px;
   height: 340px;
 }
