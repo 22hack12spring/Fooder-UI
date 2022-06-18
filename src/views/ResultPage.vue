@@ -101,7 +101,12 @@ const result: GourmetShop | null = store.state.resultShop;
   max-width: 340px;
   border-radius: 20px;
 }
-q-img {
-  width: 340px;
+.result-img {
+  aspect-ratio: 1;
+}
+@media (max-height: 700px) {
+  .result-img {
+    aspect-ratio: 4/3;
+  }
 }
 </style>
