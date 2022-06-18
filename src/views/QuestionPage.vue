@@ -38,8 +38,8 @@ function onYesClicked() {
   }
 }
 
-function allQuestionsAnswered() {
-  gourmetAnswerRequest({
+async function allQuestionsAnswered() {
+  await gourmetAnswerRequest({
     id: store.state.gourmetSearchId!,
     answer: gourmetAnswers.value,
   });
