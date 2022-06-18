@@ -34,6 +34,19 @@ const stationRules = [
   (v: string) => (v && v.length > 0) || "駅名を入力してください",
 ];
 
+async function gpsSearchClicked() {
+  navigator.geolocation.getCurrentPosition(
+    async function (position: GeolocationPosition) {
+      await gourmetStartRequest({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      });
+      $q.loading.hide();
+      router.push("/question");
+    },
+    function () {}
+  );
+}
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 </script>
@@ -66,13 +79,22 @@ const stationRules = [
       size="1.875rem"
       padding="0px"
       no-caps
-      style="width: 190px"
+      style="width: 190px; height: 60px"
       color="primary"
       label="Search"
       class="search"
       @click="Startclicked()"
     />
   </div>
+  <q-btn
+    class="q-mt-lg do-hyeon"
+    style="width: 190px; height: 60px"
+    icon="my_location"
+    label="gps Search"
+    size="1.25rem"
+    color="primary"
+    @click="gpsSearchClicked"
+  />
 </template>
 
 <style scoped>
