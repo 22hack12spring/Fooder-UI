@@ -36,5 +36,5 @@ export const gourmetAnswerRequest = async (
   gourmetAnswerRequest: GourmetAnswerRequest
 ) => {
   const { shop } = (await postGourmetAnswer(gourmetAnswerRequest)).data;
-  store.commit("setShop", shop);
+  store.commit("setResultShop", shop);
 };
