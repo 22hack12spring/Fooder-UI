@@ -30,7 +30,7 @@ const props = defineProps<Props>();
   aspect-ratio: 1;
 }
 
-@media (max-height: 600px) {
+@media (max-height: 700px) {
   .question-image {
     aspect-ratio: 4/3;
   }
