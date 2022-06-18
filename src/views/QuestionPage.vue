@@ -8,13 +8,13 @@ import { gourmetAnswerRequest } from "../apis";
 const store = useStore();
 const questions: Array<GourmetQuestion> | null = store.state.questions;
 
-const question: GourmetQuestion = {
-  id: 1,
-  image: "image-url",
-  genre: "ジャンル",
-  subgenre: "サブジャンル",
-  price: "価格",
-};
+// const question: GourmetQuestion = {
+// id: 1,
+// image: "image-url",
+// genre: "ジャンル",
+// subgenre: "サブジャンル",
+// price: "価格",
+// };
 const questionLength = 7;
 
 // 便宜上1-indexedなので, 配列のindexとして利用するときに-1する
@@ -54,10 +54,10 @@ function allQuestionsAnswered() {
 
 <template>
   <div
-    v-if="questions === null"
+    v-if="questions !== null"
     class="full-width column justify-center items-center"
   >
-    <question-info-card :question="question" />
+    <question-info-card :question="questions[currentQuestionNum - 1]" />
     <div class="full-width row justify-center">
       <div class="col">
         <q-btn round icon="close" size="lg" @click="onNoClicked" />
@@ -69,5 +69,3 @@ function allQuestionsAnswered() {
   </div>
   <div v-else>質問の取得に失敗しました</div>
 </template>
-
-<style></style>
