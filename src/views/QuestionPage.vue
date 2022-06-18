@@ -91,8 +91,12 @@ function flipCardLeave(el: gsap.TweenTarget, completed: () => void) {
 let swipeStartX: number | null = null;
 let swipeEndX: number | null = null;
 
+let scrollStartY: number | null = null;
+let scrollEndY: number | null = null;
+
 function onSwipeStart(e: TouchEvent) {
   swipeStartX = e.touches[0].clientX;
+  scrollStartY = e.touches[0].clientY;
 }
 
 function onSwipeMove(e: TouchEvent) {
@@ -100,17 +104,24 @@ function onSwipeMove(e: TouchEvent) {
     return;
   }
   swipeEndX = e.touches[0].clientX;
+  scrollEndY = e.touches[0].clientY;
 }
 
 function onSwipeEnd() {
-  if (swipeStartX == null || swipeEndX == null) {
+  if (
+    swipeStartX == null ||
+    swipeEndX == null ||
+    scrollStartY == null ||
+    scrollEndY == null
+  ) {
     return;
   }
+  const scrollDistance = scrollEndY - scrollStartY;
   const diff = swipeEndX - swipeStartX;
-  if (diff < 200) {
-    onNoClicked();
-  } else if (diff > -200) {
+  if (diff > 10 && Math.abs(scrollDistance) < Math.abs(diff)) {
     onYesClicked();
+  } else if (diff < -10 && Math.abs(scrollDistance) < Math.abs(diff)) {
+    onNoClicked();
   }
   swipeStartX = null;
   swipeEndX = null;
