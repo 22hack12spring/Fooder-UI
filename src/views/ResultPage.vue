@@ -16,15 +16,15 @@ import ItemizedText from "../components/ItemizedText.vue";
       </div>
       <div class="row justify-start">
         <div class="col-3 q-pl-md itemize-title do-hyeon">Lunch</div>
-        <div class="col-8 itemize-text">なし</div>
+        <div class="col-8 itemize-text q-my-xs">なし</div>
       </div>
       <div class="row">
         <div class="col-3 q-pl-md itemize-title do-hyeon">Close</div>
-        <div class="col-8 itemize-text">第二、第四月曜日※変動有</div>
+        <div class="col-8 itemize-text q-my-xs">第二、第四月曜日※変動有</div>
       </div>
       <div class="row">
         <div class="col-3 q-pl-md itemize-title do-hyeon">Access</div>
-        <div class="col-8 itemize-text note-sans">
+        <div class="col-8 itemize-text note-sans q-my-xs">
           東京都杉並区高円寺北２－２２－６クックランド高円寺ビル２階
         </div>
       </div>
@@ -71,6 +71,7 @@ import ItemizedText from "../components/ItemizedText.vue";
 .itemize-text {
   color: #855e5e;
   text-align: left;
+  font-size: 12pt;
 }
 .resultCard {
   width: 100%;
