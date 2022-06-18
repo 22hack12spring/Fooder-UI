@@ -4,7 +4,7 @@ import ItemizedText from "../components/ItemizedText.vue";
 import { useStore } from "../store";
 
 const store = useStore();
-const result: GourmetShop | null = store.state.result;
+const result: GourmetShop | null = store.state.resultShop;
 </script>
 
 <template>
