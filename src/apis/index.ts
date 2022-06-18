@@ -5,6 +5,8 @@ import {
   GourmetAnswerRequest,
 } from "./generated";
 import { store } from "../store";
+import router from "../router";
+import Axios from "axios";
 
 const baseUrl = import.meta.env.DEV
   ? "http://localhost:8080/api/v1"
@@ -35,6 +37,14 @@ const postGourmetAnswer = async (
 export const gourmetAnswerRequest = async (
   gourmetAnswerRequest: GourmetAnswerRequest
 ) => {
-  const { shop } = (await postGourmetAnswer(gourmetAnswerRequest)).data;
-  store.commit("setResultShop", shop);
+  try {
+    const resp = await postGourmetAnswer(gourmetAnswerRequest);
+    const { shop } = resp.data;
+    store.commit("setResultShop", shop);
+    router.push("/result");
+  } catch (e) {
+    if (Axios.isAxiosError(e) && e.response && e.response.status === 404) {
+      router.push("/notfound");
+    }
+  }
 };
