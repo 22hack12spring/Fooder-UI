@@ -1,4 +1,9 @@
-import { Configuration, GourmetStartRequest, GourmetApi } from "./generated";
+import {
+  Configuration,
+  GourmetStartRequest,
+  GourmetApi,
+  GourmetAnswerRequest,
+} from "./generated";
 import { store } from "../store";
 
 const baseUrl = import.meta.env.DEV
@@ -16,7 +21,20 @@ const postGourmetStart = async (gourmetStartRequest: GourmetStartRequest) => {
 export const gourmetStartRequest = async (
   gourmetStartRequest: GourmetStartRequest
 ) => {
-  const questions = (await postGourmetStart(gourmetStartRequest)).data
-    .questions;
+  const { questions, id } = (await postGourmetStart(gourmetStartRequest)).data;
   store.commit("setQuestions", questions);
+  store.commit("setGourmetSearchId", id);
+};
+
+const postGourmetAnswer = async (
+  gourmetAnswerRequest: GourmetAnswerRequest
+) => {
+  return await gourmetApi.postGourmetAnswer(gourmetAnswerRequest);
+};
+
+export const gourmetAnswerRequest = async (
+  gourmetAnswerRequest: GourmetAnswerRequest
+) => {
+  const { shop } = (await postGourmetAnswer(gourmetAnswerRequest)).data;
+  store.commit("setResultShop", shop);
 };
