@@ -29,19 +29,30 @@ import ItemizedText from "../components/ItemizedText.vue";
         </div>
       </div>
       <div>map</div>
-      <div class="row q-pr-md q-mb-sm justify-end items-center">
+      <div class="row q-pr-md q-mb-sm justify-end items-center link">
+        <a href="https://google.com" />
         <q-icon
           name="open_in_new"
           class="q-mr-sm"
           style="color: #855e5e; font-size: 20px"
         />
-        <div>もっと詳しく</div>
+        <div style="color: #855e5e">もっと詳しく</div>
       </div>
     </q-card>
   </div>
 </template>
 
 <style scoped>
+.link {
+  position: relative;
+}
+.link a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
 .shop-name {
   background: rgba(0, 0, 0, 0.7);
   color: white;
