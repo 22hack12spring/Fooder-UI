@@ -86,6 +86,40 @@ function flipCardLeave(el: gsap.TweenTarget, completed: () => void) {
     });
   }
 }
+
+// **** swipe **** //
+let swipeStartX: number | null = null;
+let swipeEndX: number | null = null;
+
+function onSwipeStart(e: TouchEvent) {
+  swipeStartX = e.touches[0].clientX;
+}
+
+function onSwipeMove(e: TouchEvent) {
+  if (swipeStartX == null) {
+    return;
+  }
+  swipeEndX = e.touches[0].clientX;
+}
+
+function onSwipeEnd() {
+  if (swipeStartX == null || swipeEndX == null) {
+    return;
+  }
+  const diff = swipeEndX - swipeStartX;
+  if (diff < 100) {
+    onNoClicked();
+  } else if (diff > -100) {
+    onYesClicked();
+  }
+  swipeStartX = null;
+  swipeEndX = null;
+}
+
+function onSwipeCancel() {
+  swipeStartX = null;
+  swipeEndX = null;
+}
 </script>
 
 <template>
@@ -94,7 +128,13 @@ function flipCardLeave(el: gsap.TweenTarget, completed: () => void) {
     v-if="questions !== null"
     class="full-width column justify-center items-center"
   >
-    <div class="card-container">
+    <div
+      class="card-container"
+      @touchstart="onSwipeStart"
+      @touchmove="onSwipeMove"
+      @touchend="onSwipeEnd"
+      @touchcancel="onSwipeCancel"
+    >
       <question-info-card
         :question="questions[currentQuestionNum - 1]"
         class="q-mb-lg card-space"
@@ -166,7 +206,7 @@ function flipCardLeave(el: gsap.TweenTarget, completed: () => void) {
 }
 .card {
   width: 100%;
-  max-width: 360px;
+  max-width: 340px;
   position: absolute;
   top: 0;
   left: 50%;
@@ -174,7 +214,7 @@ function flipCardLeave(el: gsap.TweenTarget, completed: () => void) {
 }
 .card-space {
   visibility: hidden;
-  max-width: 360px;
+  max-width: 340px;
   width: 100%;
 }
 </style>
