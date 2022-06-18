@@ -29,4 +29,10 @@ const props = defineProps<Props>();
 .question-image {
   aspect-ratio: 1;
 }
+
+@media (max-height: 600px) {
+  .question-image {
+    aspect-ratio: 4/3;
+  }
+}
 </style>

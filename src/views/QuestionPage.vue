@@ -107,9 +107,9 @@ function onSwipeEnd() {
     return;
   }
   const diff = swipeEndX - swipeStartX;
-  if (diff < 100) {
+  if (diff < 200) {
     onNoClicked();
-  } else if (diff > -100) {
+  } else if (diff > -200) {
     onYesClicked();
   }
   swipeStartX = null;
