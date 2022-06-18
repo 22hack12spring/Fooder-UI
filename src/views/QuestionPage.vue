@@ -17,8 +17,17 @@ const currentQuestionNum = ref<number>(1);
 
 const gourmetAnswers = ref<Array<GourmetAnswer>>([]);
 
+const yesButtonAnimate = ref<boolean>(false);
+const noButtonAnimate = ref<boolean>(false);
+
 let currentAnswer = "no";
 function onNoClicked() {
+  noButtonAnimate.value = false;
+  noButtonAnimate.value = true;
+  setTimeout(() => {
+    noButtonAnimate.value = false;
+  }, 700);
+
   currentAnswer = "no";
   gourmetAnswers.value.push({
     id: currentQuestionNum.value,
@@ -32,6 +41,12 @@ function onNoClicked() {
   }
 }
 function onYesClicked() {
+  yesButtonAnimate.value = false;
+  yesButtonAnimate.value = true;
+  setTimeout(() => {
+    yesButtonAnimate.value = false;
+  }, 700);
+
   currentAnswer = "yes";
   gourmetAnswers.value.push({
     id: currentQuestionNum.value,
@@ -175,25 +190,29 @@ function onSwipeCancel() {
     </div>
     <div class="full-width row button-container">
       <div class="col">
-        <q-btn
-          round
-          dense
-          icon="close"
-          class="close-button"
-          size="28px"
-          @click="onNoClicked"
-        />
+        <div :class="{ animate: noButtonAnimate }" class="bubbly-button-no">
+          <q-btn
+            round
+            dense
+            icon="close"
+            class="close-button"
+            size="28px"
+            @click="onNoClicked"
+          />
+        </div>
       </div>
       <div class="col">
-        <q-btn
-          round
-          dense
-          icon="favorite_border"
-          class="fav-button"
-          size="28px"
-          style="padding-top: 8px"
-          @click="onYesClicked"
-        />
+        <div :class="{ animate: yesButtonAnimate }" class="bubbly-button">
+          <q-btn
+            round
+            dense
+            icon="favorite_border"
+            class="fav-button"
+            size="28px"
+            style="padding-top: 8px"
+            @click="onYesClicked"
+          />
+        </div>
       </div>
     </div>
   </div>
