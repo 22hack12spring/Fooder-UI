@@ -12,8 +12,8 @@ const result: GourmetShop | null = store.state.resultShop;
     v-if="result !== null"
     class="full-width column justify-center items-center"
   >
-    <q-card class="resultCard">
-      <q-img :src="result.photo" />
+    <q-card class="result-card">
+      <q-img class="result-img" :src="result.photo" />
       <div class="shop-name note-sans q-py-lg q-pl-sm">
         {{ result.name }}
       </div>
@@ -38,7 +38,7 @@ const result: GourmetShop | null = store.state.resultShop;
       </div>
       <div class="q-py-md">
         <iframe
-          width="370"
+          width="300"
           :src="
             'https://maps.google.co.jp/maps?q=' +
             result.lat +
@@ -96,9 +96,12 @@ const result: GourmetShop | null = store.state.resultShop;
   text-align: left;
   font-size: 12pt;
 }
-.resultCard {
+.result-card {
   width: 100%;
-  max-width: 400px;
+  max-width: 340px;
   border-radius: 20px;
+}
+q-img {
+  width: 340px;
 }
 </style>
