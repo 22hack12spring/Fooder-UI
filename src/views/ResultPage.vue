@@ -9,7 +9,7 @@ import ItemizedText from "../components/ItemizedText.vue";
       <div class="shop-name note-sans q-py-lg q-pl-sm">
         イタリアンバル NORANEKO
       </div>
-      <div>
+      <div class="q-mb-md">
         <itemized-text class="q-ml-md" text="イタリアン・フレンチ" />
         <itemized-text class="q-ml-md" text="ダイニングバー・バル" />
         <itemized-text class="q-ml-md" text="3001〜4000円" />
