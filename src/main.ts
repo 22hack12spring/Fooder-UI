@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import { Quasar, Loading, QSpinnerPie } from "quasar";
+import { Quasar, Loading, QSpinnerPie, Notify } from "quasar";
 import quasarLang from "quasar/lang/ja";
 import App from "./App.vue";
 import router from "./router";
@@ -14,7 +14,7 @@ import "./click.scss";
 const app = createApp(App);
 
 app.use(Quasar, {
-  plugins: { Loading },
+  plugins: { Loading, Notify },
   lang: quasarLang,
   config: {
     loading: { QSpinnerPie },

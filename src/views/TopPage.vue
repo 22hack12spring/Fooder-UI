@@ -45,7 +45,17 @@ async function gpsSearchClicked() {
       $q.loading.hide();
       router.push("/question");
     },
-    function () {}
+    function () {
+      $q.loading.hide();
+      $q.notify({
+        message: "GPSを取得できませんでした",
+        icon: "warning",
+        color: "negative",
+      });
+    },
+    {
+      timeout: 5000,
+    }
   );
 }
 // This starter template is using Vue 3 <script setup> SFCs
