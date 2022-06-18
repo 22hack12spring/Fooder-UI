@@ -89,8 +89,12 @@ function flipCardLeave(el: gsap.TweenTarget, completed: () => void) {
 let swipeStartX: number | null = null;
 let swipeEndX: number | null = null;
 
+let scrollStartY: number | null = null;
+let scrollEndY: number | null = null;
+
 function onSwipeStart(e: TouchEvent) {
   swipeStartX = e.touches[0].clientX;
+  scrollStartY = e.touches[0].clientY;
 }
 
 function onSwipeMove(e: TouchEvent) {
@@ -98,17 +102,24 @@ function onSwipeMove(e: TouchEvent) {
     return;
   }
   swipeEndX = e.touches[0].clientX;
+  scrollEndY = e.touches[0].clientY;
 }
 
 function onSwipeEnd() {
-  if (swipeStartX == null || swipeEndX == null) {
+  if (
+    swipeStartX == null ||
+    swipeEndX == null ||
+    scrollStartY == null ||
+    scrollEndY == null
+  ) {
     return;
   }
+  const scrollDistance = scrollEndY - scrollStartY;
   const diff = swipeEndX - swipeStartX;
-  if (diff < 100) {
-    onNoClicked();
-  } else if (diff > -100) {
+  if (diff > 10 && Math.abs(scrollDistance) < Math.abs(diff)) {
     onYesClicked();
+  } else if (diff < -10 && Math.abs(scrollDistance) < Math.abs(diff)) {
+    onNoClicked();
   }
   swipeStartX = null;
   swipeEndX = null;
@@ -121,7 +132,7 @@ function onSwipeCancel() {
 </script>
 
 <template>
-  <page-title title="Discover" subtitle="今日の気分は?" class="q-mb-lg" />
+  <page-title title="Discover" subtitle="今日の気分は?" />
   <div
     v-if="questions !== null"
     class="full-width column justify-center items-center"
@@ -135,7 +146,7 @@ function onSwipeCancel() {
     >
       <question-info-card
         :question="questions[currentQuestionNum - 1]"
-        class="q-mb-lg card-space"
+        class="card-space"
       />
       <transition leave @leave="flipCardLeave">
         <div class="card">
@@ -162,7 +173,7 @@ function onSwipeCancel() {
         </div>
       </transition>
     </div>
-    <div class="full-width row">
+    <div class="full-width row button-container">
       <div class="col">
         <q-btn
           round
@@ -190,6 +201,10 @@ function onSwipeCancel() {
 </template>
 
 <style scoped lang="scss">
+.button-container {
+  max-width: 340px;
+  margin-top: 16px;
+}
 .close-button {
   background-color: $accent;
   color: white;
@@ -204,15 +219,16 @@ function onSwipeCancel() {
 }
 .card {
   width: 100%;
-  max-width: 340px;
+  padding: 16px;
   position: absolute;
+  display: flex;
+  justify-content: center;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
 }
 .card-space {
   visibility: hidden;
-  max-width: 340px;
+  max-width: 372px;
   width: 100%;
 }
 </style>

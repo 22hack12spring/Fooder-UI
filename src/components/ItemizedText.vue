@@ -23,6 +23,6 @@ const props = defineProps<Props>();
 }
 .text {
   color: #855e5e;
-  font-size: 16pt;
+  font-size: 1rem;
 }
 </style>

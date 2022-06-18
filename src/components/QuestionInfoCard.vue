@@ -11,7 +11,7 @@ const props = defineProps<Props>();
 
 <template>
   <q-card class="question-card full-width">
-    <q-img class="question-image" :src="question.image" />
+    <q-img class="question-image" :src="question.image" raito="1" />
     <q-card-section>
       <itemized-text :text="question.genre" />
       <itemized-text :text="question.subgenre" />
@@ -24,11 +24,15 @@ const props = defineProps<Props>();
 .question-card {
   max-width: 340px;
   width: 100%;
-  max-height: 100%;
   border-radius: 20px;
 }
 .question-image {
-  width: 340px;
-  height: 340px;
+  aspect-ratio: 1;
+}
+
+@media (max-height: 700px) {
+  .question-image {
+    aspect-ratio: 4/3;
+  }
 }
 </style>
