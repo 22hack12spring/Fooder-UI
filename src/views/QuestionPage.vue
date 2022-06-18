@@ -48,20 +48,49 @@ function allQuestionsAnswered() {
 </script>
 
 <template>
-  <page-title title="Discover" subtitle="今日の気分は?" class="q-mb-md" />
+  <page-title title="Discover" subtitle="今日の気分は?" class="q-mb-lg" />
   <div
     v-if="questions !== null"
     class="full-width column justify-center items-center"
   >
-    <question-info-card :question="questions[currentQuestionNum - 1]" />
-    <div class="full-width row justify-center">
+    <question-info-card
+      :question="questions[currentQuestionNum - 1]"
+      class="q-mb-lg"
+    />
+    <div class="full-width row">
       <div class="col">
-        <q-btn round icon="close" size="lg" @click="onNoClicked" />
+        <q-btn
+          round
+          dense
+          icon="close"
+          class="close-button"
+          size="28px"
+          @click="onNoClicked"
+        />
       </div>
       <div class="col">
-        <q-btn round icon="favorite" size="lg" @click="onYesClicked" />
+        <q-btn
+          round
+          dense
+          icon="favorite_border"
+          class="fav-button"
+          size="28px"
+          style="padding-top: 8px"
+          @click="onYesClicked"
+        />
       </div>
     </div>
   </div>
   <div v-else>質問の取得に失敗しました</div>
 </template>
+
+<style scoped lang="scss">
+.close-button {
+  background-color: $accent;
+  color: white;
+}
+.fav-button {
+  background-color: $primary;
+  color: white;
+}
+</style>
