@@ -4,7 +4,6 @@ import { GourmetAnswer, GourmetQuestion } from "../apis/generated";
 import QuestionInfoCard from "../components/QuestionInfoCard.vue";
 import { useStore } from "../store";
 import { ref } from "vue";
-import router from "../router";
 import { gourmetAnswerRequest } from "../apis";
 import PageTitle from "../components/PageTitle.vue";
 
@@ -51,7 +50,6 @@ async function allQuestionsAnswered() {
     id: store.state.gourmetSearchId!,
     answer: gourmetAnswers.value,
   });
-  router.push("/result");
 }
 
 // **** animation **** //
