@@ -40,7 +40,7 @@ const result: GourmetShop | null = store.state.resultShop;
         <iframe
           width="370"
           :src="
-            'http://maps.google.co.jp/maps?q=' +
+            'https://maps.google.co.jp/maps?q=' +
             result.lat +
             ', ' +
             result.lng +
