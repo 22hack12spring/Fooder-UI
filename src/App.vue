@@ -2,8 +2,15 @@
   <q-layout view="hHh lpr fff" class="note-sans">
     <AppHeaderVue />
     <q-footer class="transparent">
-      <q-toolbar-title class="text-secondary footer q-py-xs">
+      <q-toolbar-title class="lt-md text-secondary footer q-py-xs">
+        【画像提供：ホットペッパー グルメ】<br />
         Powered by
+        <a href="http://webservice.recruit.co.jp/" class="text-secondary link">
+          ホットペッパー Webサービス
+        </a></q-toolbar-title
+      >
+      <q-toolbar-title class="gt-sm text-secondary footer q-py-xs">
+        【画像提供：ホットペッパー グルメ】 Powered by
         <a href="http://webservice.recruit.co.jp/" class="text-secondary link">
           ホットペッパー Webサービス
         </a></q-toolbar-title
@@ -24,8 +31,14 @@ import AppHeaderVue from "./components/AppHeader.vue";
 
 <style scoped>
 .footer {
-  font-size: 12px;
+  font-size: 10px;
 }
+@media (min-width: 1023px) {
+  .footer {
+    font-size: 12px;
+  }
+}
+
 .link {
   text-decoration: none;
 }
