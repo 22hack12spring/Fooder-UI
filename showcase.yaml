@@ -8,5 +8,6 @@ https: on
 cname: "fooder-dev.trap.games"
 
 startup: |
-  npm i
+# do nothing (use cloudflare pages)
+#   npm i
 #   npm run build
