@@ -1,8 +1,13 @@
 <template>
-  <q-layout view="hHh lpr fFf" class="shadow-2 rounded-borders">
-    <AppHeader />
-    <q-footer elevated>
-      <q-toolbar-title>Powered by ホットペッパー Webサービス</q-toolbar-title>
+  <q-layout view="hHh lpr fff" class="note-sans">
+    <AppHeaderVue />
+    <q-footer class="transparent">
+      <q-toolbar-title class="text-secondary footer">
+        Powered by
+        <a href="http://webservice.recruit.co.jp/" class="text-secondary link">
+          ホットペッパー Webサービス
+        </a></q-toolbar-title
+      >
     </q-footer>
 
     <q-page-container>
@@ -14,5 +19,22 @@
 </template>
 
 <script setup lang="ts">
-import AppHeader from "./components/AppHeader.vue";
+import AppHeaderVue from "./components/AppHeader.vue";
 </script>
+
+<style scoped>
+.footer {
+  font-size: 12px;
+}
+.link {
+  text-decoration: none;
+}
+</style>
+
+<style>
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+</style>
