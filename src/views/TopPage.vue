@@ -14,7 +14,7 @@ const showloading = () => {
   $q.loading.show({
     spinner: QSpinnerPie,
     spinnerColor: "primary",
-    spinnerSize: 140,
+    spinnerSize: 80,
   });
 };
 
