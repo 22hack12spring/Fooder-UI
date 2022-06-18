@@ -9,16 +9,21 @@ const props = defineProps<Props>();
 <template>
   <div class="row items-center">
     <div class="bullet q-mr-sm" />
-    <div>{{ text }}</div>
+    <div class="text">{{ text }}</div>
   </div>
 </template>
 
-<style>
+<style scoped>
 .bullet {
-  background-color: orange;
+  background-color: #ff914c;
   width: 12px;
   height: 12px;
   position: relative;
   border-radius: 1px;
+}
+.text {
+  color: #855e5e;
+  font-family: "Noto Sans JP";
+  font-size: 16pt;
 }
 </style>

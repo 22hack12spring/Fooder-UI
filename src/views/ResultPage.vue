@@ -8,15 +8,9 @@ import ItemizedText from "../components/ItemizedText.vue";
       <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
       <div class="shop-name text-h6">イタリアンバル NORANEKO</div>
       <div>
-        <itemized-text
-          class="q-ml-md itemized-text"
-          text="イタリアン・フレンチ"
-        />
-        <itemized-text
-          class="q-ml-md itemized-text"
-          text="ダイニングバー・バル"
-        />
-        <itemized-text class="q-ml-md itemized-text" text="3001〜4000円" />
+        <itemized-text class="q-ml-md" text="イタリアン・フレンチ" />
+        <itemized-text class="q-ml-md" text="ダイニングバー・バル" />
+        <itemized-text class="q-ml-md" text="3001〜4000円" />
       </div>
       <div class="row justify-start">
         <div class="col-3 q-pl-md" style="text-align: left">Lunch</div>
@@ -55,8 +49,5 @@ import ItemizedText from "../components/ItemizedText.vue";
   width: 100%;
   max-width: 300px;
   border-radius: 20px;
-}
-.itemized-text {
-  font-size: 12pt;
 }
 </style>
