@@ -28,7 +28,15 @@ import ItemizedText from "../components/ItemizedText.vue";
           東京都杉並区高円寺北２－２２－６クックランド高円寺ビル２階
         </div>
       </div>
-      <div>map</div>
+      <div class="q-py-md">
+        <iframe
+          width="270"
+          src="http://maps.google.co.jp/maps?q=35.605123, 139.68353&z=17&output=embed&t=m"
+          frameborder="0"
+          marginwidth="0"
+          marginheight="0"
+        ></iframe>
+      </div>
       <div class="row q-pr-md q-mb-sm justify-end items-center link">
         <a href="https://google.com" />
         <q-icon
