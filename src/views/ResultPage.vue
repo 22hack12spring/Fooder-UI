@@ -29,8 +29,12 @@ import ItemizedText from "../components/ItemizedText.vue";
         </div>
       </div>
       <div>map</div>
-      <div class="row q-pr-md justify-end items-center">
-        <q-icon name="open_in_new" class="q-mr-sm" />
+      <div class="row q-pr-md q-mb-sm justify-end items-center">
+        <q-icon
+          name="open_in_new"
+          class="q-mr-sm"
+          style="color: #855e5e; font-size: 20px"
+        />
         <div>もっと詳しく</div>
       </div>
     </q-card>
