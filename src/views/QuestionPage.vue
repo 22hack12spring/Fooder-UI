@@ -123,7 +123,7 @@ function onSwipeCancel() {
 </script>
 
 <template>
-  <page-title title="Discover" subtitle="今日の気分は?" class="q-mb-lg" />
+  <page-title title="Discover" subtitle="今日の気分は?" />
   <div
     v-if="questions !== null"
     class="full-width column justify-center items-center"
@@ -137,7 +137,7 @@ function onSwipeCancel() {
     >
       <question-info-card
         :question="questions[currentQuestionNum - 1]"
-        class="q-mb-lg card-space"
+        class="card-space"
       />
       <transition leave @leave="flipCardLeave">
         <div class="card">
@@ -206,15 +206,17 @@ function onSwipeCancel() {
 }
 .card {
   width: 100%;
-  max-width: 340px;
+  padding: 16px;
+  padding-bottom: 0px;
   position: absolute;
+  display: flex;
+  justify-content: center;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
 }
 .card-space {
   visibility: hidden;
-  max-width: 340px;
+  max-width: 372px;
   width: 100%;
 }
 </style>
