@@ -35,6 +35,7 @@ const stationRules = [
 ];
 
 async function gpsSearchClicked() {
+  showloading();
   navigator.geolocation.getCurrentPosition(
     async function (position: GeolocationPosition) {
       await gourmetStartRequest({
