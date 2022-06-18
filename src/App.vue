@@ -10,7 +10,7 @@
       >
     </q-footer>
 
-    <q-page-container>
+    <q-page-container class="page-container">
       <q-page class="q-pa-md page">
         <router-view />
       </q-page>
@@ -32,6 +32,10 @@ import AppHeaderVue from "./components/AppHeader.vue";
 .page {
   max-width: 600px;
   margin: auto;
+}
+
+.page-container {
+  overflow: hidden;
 }
 </style>
 

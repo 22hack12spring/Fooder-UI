@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import gsap from "gsap";
 import { GourmetAnswer, GourmetQuestion } from "../apis/generated";
 import QuestionInfoCard from "../components/QuestionInfoCard.vue";
 import { useStore } from "../store";
@@ -17,7 +18,9 @@ const currentQuestionNum = ref<number>(1);
 
 const gourmetAnswers = ref<Array<GourmetAnswer>>([]);
 
+let currentAnswer = "no";
 function onNoClicked() {
+  currentAnswer = "no";
   gourmetAnswers.value.push({
     id: currentQuestionNum.value,
     answer: "no",
@@ -30,6 +33,7 @@ function onNoClicked() {
   }
 }
 function onYesClicked() {
+  currentAnswer = "yes";
   gourmetAnswers.value.push({
     id: currentQuestionNum.value,
     answer: "yes",
@@ -49,6 +53,39 @@ async function allQuestionsAnswered() {
   });
   router.push("/result");
 }
+
+// **** animation **** //
+function flipCardLeave(el: gsap.TweenTarget, completed: () => void) {
+  if (currentAnswer == "no") {
+    gsap.to(el, {
+      duration: 0.7,
+      x: "-100%",
+      rotate: "-20deg",
+      transformOrigin: "buttom left",
+      onComplete: completed,
+      ease: "power3.inOut",
+    });
+    gsap.to(el, {
+      duration: 0.1,
+      delay: 0.4,
+      opacity: 0,
+    });
+  } else {
+    gsap.to(el, {
+      duration: 0.7,
+      x: "100%",
+      rotate: "15deg",
+      transformOrigin: "buttom right",
+      onComplete: completed,
+      ease: "power3.inOut",
+    });
+    gsap.to(el, {
+      duration: 0.1,
+      delay: 0.4,
+      opacity: 0,
+    });
+  }
+}
 </script>
 
 <template>
@@ -57,10 +94,32 @@ async function allQuestionsAnswered() {
     v-if="questions !== null"
     class="full-width column justify-center items-center"
   >
-    <question-info-card
-      :question="questions[currentQuestionNum - 1]"
-      class="q-mb-lg"
-    />
+    <div class="card-container">
+      <transition-group leave @leave="flipCardLeave">
+        <question-info-card
+          :question="questions[currentQuestionNum - 1]"
+          class="q-mb-lg card-space"
+        />
+        <div class="card">
+          <question-info-card
+            :question="questions[currentQuestionNum - 1]"
+            class="q-mb-lg"
+          />
+        </div>
+        <div class="card" v-if="currentQuestionNum <= 3">
+          <question-info-card
+            :question="questions[currentQuestionNum - 1]"
+            class="q-mb-lg"
+          />
+        </div>
+        <div class="card" v-if="currentQuestionNum === 1">
+          <question-info-card
+            :question="questions[currentQuestionNum - 1]"
+            class="q-mb-lg"
+          />
+        </div>
+      </transition-group>
+    </div>
     <div class="full-width row">
       <div class="col">
         <q-btn
@@ -96,5 +155,22 @@ async function allQuestionsAnswered() {
 .fav-button {
   background-color: $primary;
   color: white;
+}
+.card-container {
+  position: relative;
+  width: 100%;
+}
+.card {
+  width: 100%;
+  max-width: 360px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.card-space {
+  visibility: hidden;
+  max-width: 360px;
+  width: 100%;
 }
 </style>
