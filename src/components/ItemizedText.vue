@@ -9,7 +9,7 @@ const props = defineProps<Props>();
 <template>
   <div class="row items-center">
     <div class="bullet q-mr-sm" />
-    <div class="text">{{ text }}</div>
+    <div class="text note-sans">{{ text }}</div>
   </div>
 </template>
 
@@ -23,7 +23,6 @@ const props = defineProps<Props>();
 }
 .text {
   color: #855e5e;
-  font-family: "Noto Sans JP";
   font-size: 16pt;
 }
 </style>
