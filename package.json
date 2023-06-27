@@ -8,7 +8,6 @@
     "dev": "vite",
     "prepare": "husky install",
     "preview": "vite preview",
-    "start": "node server.js",
     "api": "openapi-generator-cli generate -g typescript-axios -i ./docs/openapi.yml -o ./src/apis/generated"
   },
   "dependencies": {
